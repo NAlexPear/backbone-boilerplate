@@ -28,26 +28,6 @@ var _flags = require("./flags.js");
 
 var _flags2 = _interopRequireDefault(_flags);
 
-var _base = require("./browser/core/base.js");
-
-var _base2 = _interopRequireDefault(_base);
-
-var _login = require("./browser/login.js");
-
-var _login2 = _interopRequireDefault(_login);
-
-var _base3 = require("./browser/admin/base.js");
-
-var _base4 = _interopRequireDefault(_base3);
-
-var _base5 = require("./browser/data-warehouse/base.js");
-
-var _base6 = _interopRequireDefault(_base5);
-
-var _flex = require("./browser/demo/flex.js");
-
-var _flex2 = _interopRequireDefault(_flex);
-
 var _gif = require("./helpers/gif.js");
 
 var _gif2 = _interopRequireDefault(_gif);
@@ -57,7 +37,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var testCount = 0;
-var tests = (0, _flags2.default)([_base2.default, _login2.default, _base4.default, _base6.default, _flex2.default]);
+var tests = (0, _flags2.default)([]);
 
 function unlinkItems(items) {
     (0, _underscore2.default)(items).each(function (item) {

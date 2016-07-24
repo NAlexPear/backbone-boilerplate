@@ -11,13 +11,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var flags = {
-    "core": true,
-    "login": true,
-    "admin": true,
-    "dataWarehouse": true,
-    "demo": false
-};
+var flags = {};
 
 function flagTests(testFunctionArray) {
     var testsToRun = (0, _underscore2.default)(testFunctionArray).filter(function (test) {

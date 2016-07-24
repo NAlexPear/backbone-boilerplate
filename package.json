@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "browser": "./src/test/selenium.sh",
+    "browser": "./test/selenium.sh",
     "default": "grunt",
     "lint": "node node_modules/.bin/eslint"
   },

@@ -47,4 +47,4 @@ export env BROWSER=$BROWSER
 echo "Running tests on $TARGET with $BROWSER"
 
 
-grunt babel:test && mocha src/test/run/runner.js -c --harmony -u bdd -R $runner -s 10000 -t 40000
+grunt babel:test && mocha test/run/runner.js -c --harmony -u bdd -R $runner -s 10000 -t 40000

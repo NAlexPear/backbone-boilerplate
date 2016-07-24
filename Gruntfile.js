@@ -235,6 +235,7 @@ module.exports = function runGrunt( grunt ){
         "concat",
         "cssmin",
         "requirejs",
+        "babel:build",
         "uglify",
         "copy",
         "rev",
