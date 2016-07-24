@@ -10,7 +10,7 @@ module.exports = function gruntServe( grunt ){
         "babel:build",
         "requirejs",
         "concat",
-        // "uglify",
+        "uglify",
         "copy",
         "usemin"
     ] );
