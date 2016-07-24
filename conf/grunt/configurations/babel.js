@@ -8,9 +8,9 @@ module.exports = function getBabelConfig( grunt, options ){
             },
             "files": [ {
                 "expand": true,
-                "cwd": "<%= yeoman.app %>",
+                "cwd": `${options.yeoman.app}/scripts/`,
                 "src": [ "**/*.js", "!require-config.js" ],
-                "dest": options.yeoman.dist
+                "dest": `.tmp/${options.yeoman.app}/scripts/`
             } ]
         },
         "test": {

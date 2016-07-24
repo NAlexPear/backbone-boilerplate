@@ -1,9 +1,9 @@
 module.exports = function getUglifyConfig( grunt, options ){
-    var mainPath = `${options.yeoman.dist}/scripts/main.js`;
+    var mainPath = `${options.yeoman.dist}/scripts/app.js`;
     var filesArray = [
-        ".tmp/scripts/main.js"
+        `${options.yeoman.dist}/scripts/app.js`
     ];
-    
+
     var files = {};
 
     files[ mainPath ] = filesArray;

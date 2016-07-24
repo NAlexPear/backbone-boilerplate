@@ -1,16 +1,17 @@
-module.exports = {
-    "dist": {
-        "options": {
-            "almond": true,
+module.exports = function getRequireConfig( grunt, options ){
+    var textModule = `${__dirname.split( "node_modules" )[0]}/requirejs-text/text`;
 
-            "mainConfigFile": "require-config.js",
-
-            "keepBuildDir": true,
-            "dir": ".tmp/scripts",
-
-            "optimize": "none",
-            "useStrict": true,
-            "wrap": true
+    return {
+        "dist": {
+            "options": {
+                "baseUrl": `.tmp/${options.yeoman.app}/scripts/`,
+                "mainConfigFile": "require-config.js",
+                "stubModules": [ textModule ],
+                "findNestedDependencies": true,
+                "optimize": "none",
+                "name": "app",
+                "out": `${options.yeoman.dist}/scripts/app.js`
+            }
         }
-    }
+    };
 };

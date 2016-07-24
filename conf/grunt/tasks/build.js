@@ -6,13 +6,12 @@ module.exports = function gruntServe( grunt ){
         "useminPrepare",
         "imagemin",
         "htmlmin",
-        "concat",
         "cssmin",
-        "requirejs",
         "babel:build",
+        "requirejs",
+        "concat",
         "uglify",
         "copy",
-        "rev",
         "usemin"
     ] );
 };

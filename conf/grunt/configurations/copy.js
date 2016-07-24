@@ -14,6 +14,10 @@ module.exports = function getCopyConfig( grunt, options ){
                     ]
                 },
                 {
+                    "src": `${options.yeoman.app}/index.js`,
+                    "dest": `${options.yeoman.dist}/index.js`
+                },
+                {
                     "src": "node_modules/apache-server-configs/dist/.htaccess",
                     "dest": `${options.yeoman.dist}/.htaccess`
                 },

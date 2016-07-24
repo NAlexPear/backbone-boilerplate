@@ -31,7 +31,7 @@
             "stroustrup"
         ],
         "callback-return": "off",
-        "camelcase": "error",
+        "camelcase": "off",
         "comma-spacing": "off",
         "comma-style": [
             "error",
