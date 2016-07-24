@@ -4,17 +4,16 @@ requirejs.config( {
         "template": "../../../app/templates",
         "jquery": "../../../node_modules/jquery/dist/jquery",
         "backbone": "../../../node_modules/backbone/backbone",
-        "underscore": "../../../node_modules/lodash/lodash",
+        "underscore": "../../../node_modules/underscore/underscore",
         "text": "../../../node_modules/requirejs-text/text"
     },
 
     "shim": {
-        "backbone": {
-            "deps": [ "underscore", "jquery" ],
-            "exports": "Backbone"
-        },
         "underscore": {
             "exports": "_"
+        },
+        "backbone": {
+            "exports": "Backbone"
         }
     }
 } );

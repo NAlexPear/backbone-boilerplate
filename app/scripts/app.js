@@ -1,22 +1,23 @@
-// Internal Components
-import LandingPageView from "views/home/index";
+// Libraries and Modules
 import $ from "jquery";
 
+// Internal Components
+import LandingPageView from "views/home/index";
+
 var routes = {
-    "/": function getHomePage(){
-        return new LandingPageView();
-    }
+    "/": LandingPageView
 };
 
-var App = {
-    "start": function startApplication( route ){
-        var page = routes[ route ]();
+var App = function App(){
+    this.load = function loadRoute( route ){
+        var Page = routes[ route ];
+        var pageView = new Page();
 
-        /* eslint-disable no-console */
-        console.log( page );
-
-        $( "#container" ).html( page );
-    }
+        $( "#container" ).html( pageView.$el );
+    };
+    this.start = function startApplication(){
+        this.load( "/" );
+    };
 };
 
 export default App;
