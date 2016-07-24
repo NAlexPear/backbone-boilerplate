@@ -3,13 +3,17 @@ import LandingPageView from "views/home/index";
 import $ from "jquery";
 
 var routes = {
-    "/": LandingPageView
+    "/": function getHomePage(){
+        return new LandingPageView();
+    }
 };
 
 var App = {
     "start": function startApplication( route ){
-        var Page = routes[ route ];
-        var page = new Page();
+        var page = routes[ route ]();
+
+        /* eslint-disable no-console */
+        console.log( page );
 
         $( "#container" ).html( page );
     }

@@ -4,7 +4,7 @@ requirejs.config( {
         "template": "../../../app/templates",
         "jquery": "../../../node_modules/jquery/dist/jquery",
         "backbone": "../../../node_modules/backbone/backbone",
-        "underscore": "../../../node_modules/lodash/lodash.underscore",
+        "underscore": "../../../node_modules/lodash/lodash",
         "text": "../../../node_modules/requirejs-text/text"
     },
 
