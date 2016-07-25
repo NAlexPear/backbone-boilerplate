@@ -5,6 +5,8 @@ import $ from "jquery";
 
 // Backbone Components
 import UserCollection from "../../collections/users";
+import UserModel from "../../models/user";
+import UserListItemView from "./user-list-item";
 
 // Internal Components
 import template from "text!template/components/user-counter.html";
@@ -12,43 +14,69 @@ import template from "text!template/components/user-counter.html";
 var UserCounterView = Backbone.View.extend( {
     "className": "user-counter",
     "template": _.template( template ),
+    "events": {
+        "submit form.add-user": function submitUser( event ){
+            var model = new UserModel( {
+                "name": $( ".name" ).val(),
+                "gender": $( ".gender" ).val()
+            } );
+
+            event.preventDefault();
+
+            this.collection.add( model );
+            this.listUser( model );
+        }
+    },
     "initialize": function initialize(){
         this.collection = new UserCollection();
+
+        this.listenTo(
+            this.collection,
+            "remove:user",
+            function handleRemoveUserEvent( data ){
+                data.view.remove();
+                data.model.destroy( {
+                    "wait": true
+                } );
+            }
+        );
+
+        this.listenTo(
+            this.collection,
+            "list:user",
+            ( data ) => this.listUser( data.model )
+        );
 
         this.render();
     },
     "render": function render(){
         this.$el.html( this.template() );
 
-        this.listUsers();
+        this.listAllUsers();
 
         return this;
     },
-    "listUsers": function listUsers(){
-        var list = [];
-        var self = this;
-
-        function appendUsers( listElements, view ){
-            _( listElements ).each(
-                ( item ) => view.$el.find( ".user-list" ).append( $( item ) )
-            );
-        }
-
+    "listAllUsers": function listUsers(){
         this.collection.fetch( {
             "success": function handleCollection( collection ){
                 _( collection.models ).each(
-                    ( model ) => {
-                        var name = model.get( "name" );
-                        var gender = model.get( "gender" );
-                        var element = `<li>${name} (${gender})</li>`;
-
-                        list.push( element );
-                    }
+                    ( user ) => user.trigger( "list:user", {
+                        "model": user
+                    } )
                 );
-
-                appendUsers( list, self );
             }
         } );
+    },
+    "listUser": function listUserByModel( model ){
+        var listItem = new UserListItemView( {
+            "model": model
+        } );
+
+        model.save();
+
+        listItem.appendToTargetList(
+            this.$el.find( "ul.user-list" )
+        );
     }
 } );
 
