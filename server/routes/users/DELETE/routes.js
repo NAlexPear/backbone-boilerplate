@@ -41,12 +41,12 @@ module.exports = function handleUserDeletion( req, res ){
             }
 
             client.query(
-                "DELETE FROM items WHERE id=($1)",
+                "DELETE FROM users WHERE id=($1)",
                 [ id ]
             );
 
             query = client.query(
-                "SELECT * FROM items ORDER BY id ASC;"
+                "SELECT * FROM users ORDER BY id ASC;"
             );
 
             query.on(

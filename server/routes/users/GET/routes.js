@@ -39,7 +39,7 @@ module.exports = function handleUserRequest( req, res ){
             }
 
             query = client.query(
-                "SELECT * FROM items ORDER BY id ASC;"
+                "SELECT * FROM users ORDER BY id ASC;"
             );
 
             query.on(

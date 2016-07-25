@@ -3,7 +3,8 @@
   "scripts": {
     "browser": "./test/selenium.sh",
     "default": "grunt",
-    "lint": "node node_modules/.bin/eslint"
+    "lint": "node node_modules/.bin/eslint",
+    "db": "node server/helpers/init.js" 
   },
   "devDependencies": {
     "apache-server-configs": "2.8.0",

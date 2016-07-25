@@ -19,8 +19,8 @@ module.exports = function handleUserPost( req, res ){
 
     // get data through http request
     var data = {
-        "text": req.body.text,
-        "complete": false
+        "name": req.body.name,
+        "gender": req.body.gender
     };
 
     // set up universal error handler
@@ -45,12 +45,12 @@ module.exports = function handleUserPost( req, res ){
             }
 
             client.query(
-                "INSERT INTO items(text, complete) values($1, $2)",
-                [ data.text, data.complete ]
+                "INSERT INTO users(name, gender) values($1, $2)",
+                [ data.name, data.gender ]
             );
 
             query = client.query(
-                "SELECT * FROM items ORDER BY id ASC"
+                "SELECT * FROM users ORDER BY id ASC"
             );
 
             query.on(
