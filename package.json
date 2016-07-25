@@ -1,10 +1,12 @@
 {
   "private": true,
   "scripts": {
+    "start": "npm run api && grunt serve",
     "browser": "./test/selenium.sh",
     "default": "grunt",
     "lint": "node node_modules/.bin/eslint",
-    "db": "node server/helpers/init.js" 
+    "db": "node server/helpers/init.js",
+    "api": "node server/index.js &"
   },
   "devDependencies": {
     "apache-server-configs": "2.8.0",
