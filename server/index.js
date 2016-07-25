@@ -9,7 +9,7 @@ app.use( bodyParser.urlencoded( {
     "extended": true
 } ) );
 
-app.use( "/", router );
+app.use( "/api/v1", router );
 
 app.listen( 3000, function confirmListener(){
     process.stdout.write( "\nBackbone application listening on port 3000...\n\n" );

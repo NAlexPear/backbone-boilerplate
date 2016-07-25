@@ -1,8 +1,6 @@
 /* eslint-disable new-cap, no-process-env, no-console */
 "use strict";
 
-var express = require( "express" );
-var router = express.Router();
 var pg = require( "pg" );
 var path = require( "path" );
 var configUrl = require(
@@ -16,7 +14,7 @@ var configUrl = require(
 var connectionString = process.env.DATABASE_URL || configUrl;
 
 
-router.post( "/api/v1/users", function handleRequest( req, res ){
+module.exports = function handleUserPost( req, res ){
     var results = [];
 
     // get data through http request
@@ -72,6 +70,4 @@ router.post( "/api/v1/users", function handleRequest( req, res ){
             );
         }
     );
-} );
-
-module.exports = router;
+};
